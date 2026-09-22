@@ -9,7 +9,7 @@ import { ImageWithFallback } from "@/components/ui/ImageWithFallback";
 export const metadata: Metadata = {
   title: "Colecciones",
   description:
-    "Explora las colecciones JULEHOME: Minimal, Home, Navidad y Edición Limitada.",
+    "Explora las colecciones JULEHOME.",
 };
 
 export default function CollectionsPage() {

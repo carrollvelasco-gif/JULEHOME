@@ -1,29 +1,6 @@
 import type { Collection } from "@/types";
-import { u } from "@/lib/images";
 
 export const collections: Collection[] = [
-  {
-    slug: "minimal",
-    name: "Minimal",
-    tagline: "Menos, pero mejor",
-    description:
-      "Líneas puras, cera blanca y aromas limpios de algodón y lino. La elegancia de lo esencial, sin estridencias.",
-    image: u("candleWhite"),
-    imageAlt: "Vela blanca minimalista sobre superficie clara",
-    accent: "#889579",
-    featured: true,
-  },
-  {
-    slug: "home",
-    name: "Home",
-    tagline: "El hogar que te abraza",
-    description:
-      "Notas cálidas de vainilla, madera y especias que recuerdan a los momentos que hacen de una casa un hogar.",
-    image: u("cozyHome"),
-    imageAlt: "Sala acogedora con luz cálida y mantas",
-    accent: "#a68a6a",
-    featured: true,
-  },
   {
     slug: "navidad",
     name: "Navidad",

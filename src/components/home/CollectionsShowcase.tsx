@@ -18,7 +18,7 @@ export function CollectionsShowcase() {
                 Historias en <em className="text-olive-600 dark:text-olive-300">cada aroma</em>
               </>
             }
-            description="Siete colecciones, siete maneras de habitar el hogar. Elige la tuya."
+            description="Cada colección, una manera de habitar el hogar. Elige la tuya."
           />
           <Button href="/colecciones" variant="outline" className="shrink-0">
             Ver todas las colecciones
