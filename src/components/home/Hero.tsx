@@ -118,7 +118,7 @@ export function Hero() {
           >
             <p className="text-xs uppercase tracking-[0.2em] text-white/70">Colección</p>
             <p className="font-display text-lg text-white">Navidad 2026</p>
-            <p className="text-xs text-olive-200">Edición limitada</p>
+            <p className="text-xs text-olive-200">Cera natural · Temporada</p>
           </div>
         </motion.div>
 

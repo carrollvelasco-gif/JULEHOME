@@ -30,13 +30,6 @@ export const categories: Category[] = [
     image: "/images/decoracion/bandeja-aura.jpeg",
     imageAlt: "Bandeja Aura de JULEHOME, decoración elegante para el hogar",
   },
-  {
-    slug: "colecciones-especiales",
-    name: "Colecciones Especiales",
-    tagline: "Piezas únicas y limitadas",
-    image: "/images/decoracion/jarron-mykonos.jpeg",
-    imageAlt: "Jarrón Mykonos de JULEHOME, pieza de edición especial",
-  },
 ];
 
 export function getCategory(slug: string): Category | undefined {

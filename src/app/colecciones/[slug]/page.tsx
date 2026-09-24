@@ -35,7 +35,7 @@ export default async function CollectionPage({ params }: Props) {
   if (!collection) notFound();
 
   const collectionProducts =
-    slug === "navidad" || slug === "edicion-limitada"
+    slug === "navidad"
       ? getChristmasProducts()
       : products.filter((p) => p.collection === slug);
 

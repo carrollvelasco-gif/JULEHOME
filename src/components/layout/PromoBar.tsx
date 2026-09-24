@@ -8,7 +8,6 @@ const messages = [
   "−20 % en la colección Navidad hasta agotar existencias",
   "Velas de cera natural · Elaboradas a mano",
   "Envuelto para regalo en todos nuestros sets",
-  "Nuevo: colección Edición Limitada, solo 500 unidades",
 ];
 
 export function PromoBar() {

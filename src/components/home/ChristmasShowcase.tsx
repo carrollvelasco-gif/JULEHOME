@@ -60,7 +60,7 @@ export function ChristmasShowcase() {
         </div>
 
         <p className="mt-10 text-center text-xs uppercase tracking-[0.25em] text-cream-100/50">
-          Ediciones limitadas · Hasta agotar existencias
+          Navidad · Hasta agotar existencias
         </p>
       </div>
     </section>
