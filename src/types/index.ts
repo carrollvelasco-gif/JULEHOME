@@ -42,6 +42,7 @@ export type Product = {
   featured: boolean;
   material?: string;
   dimensions?: string;
+  aromas?: string[];
 };
 
 export type Testimonial = {
@@ -60,8 +61,10 @@ export type Faq = {
 };
 
 export type CartItem = {
+  key: string;
   product: Product;
   quantity: number;
+  aroma?: string;
 };
 
 export type SortOption = "featured" | "best" | "newest" | "price-asc" | "price-desc" | "name";

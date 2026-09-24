@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Leaf, Mail, Phone } from "lucide-react";
+import { ArrowRight, Leaf, Phone } from "lucide-react";
 import { InstagramIcon } from "@/components/ui/SocialIcons";
 import { NAV_LINKS, SITE } from "@/lib/constants";
 import { useUI } from "@/context/UIContext";
@@ -98,10 +98,7 @@ export function MobileMenu() {
                 <Phone size={14} className="text-olive-600 dark:text-olive-300" />
                 {SITE.phone}
               </p>
-              <p className="flex items-center gap-2">
-                <Mail size={14} className="text-olive-600 dark:text-olive-300" />
-                {SITE.email}
-              </p>
+
               <a
                 href={SITE.instagram}
                 target="_blank"

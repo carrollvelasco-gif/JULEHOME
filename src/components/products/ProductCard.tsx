@@ -1,11 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Eye, Heart, ShoppingBag } from "lucide-react";
 import { useWishlist } from "@/context/WishlistContext";
 import { useCart } from "@/context/CartContext";
 import { useUI } from "@/context/UIContext";
+import { requiresAromaSelection } from "@/lib/cart";
 import { ImageWithFallback } from "@/components/ui/ImageWithFallback";
 import { Badge } from "@/components/ui/Badge";
 import { Price } from "@/components/ui/Price";
@@ -22,9 +24,19 @@ export function ProductCard({ product, className }: ProductCardProps) {
   const { has, toggle } = useWishlist();
   const { addItem, openCart } = useCart();
   const { openQuickView } = useUI();
+  const router = useRouter();
   const wished = has(product.id);
 
   const hasDiscount = product.compareAtPrice && product.compareAtPrice > product.price;
+
+  const addToCart = () => {
+    if (requiresAromaSelection(product)) {
+      router.push(`/producto/${product.slug}`);
+      return;
+    }
+    addItem(product);
+    openCart();
+  };
 
   return (
     <article className={cn("group relative flex flex-col", className)}>
@@ -81,10 +93,7 @@ export function ProductCard({ product, className }: ProductCardProps) {
             Vista rápida
           </button>
           <button
-            onClick={() => {
-              addItem(product);
-              openCart();
-            }}
+            onClick={addToCart}
             aria-label={`Añadir ${product.name} al carrito`}
             className="grid size-9 place-items-center rounded-full bg-olive-600 text-white shadow-glow transition-colors hover:bg-olive-700"
           >
@@ -110,10 +119,7 @@ export function ProductCard({ product, className }: ProductCardProps) {
         <div className="mt-3 flex flex-col gap-2">
           <motion.button
             whileTap={{ scale: 0.98 }}
-            onClick={() => {
-              addItem(product);
-              openCart();
-            }}
+            onClick={addToCart}
             aria-label={`Añadir ${product.name} al carrito`}
             className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-olive-600 px-4 py-3 text-xs font-semibold tracking-wide text-white shadow-glow transition-colors duration-300 hover:bg-olive-700"
           >

@@ -3,16 +3,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, ShieldCheck, ShoppingBag, Trash2, Truck } from "lucide-react";
+import { ArrowRight, ShieldCheck, ShoppingBag, Trash2 } from "lucide-react";
 import { useCart } from "@/context/CartContext";
-import { SITE } from "@/lib/constants";
 import { formatPrice } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
 import { QuantitySelector } from "@/components/ui/QuantitySelector";
 import { EmptyState } from "@/components/ui/EmptyState";
 
 export function CartPageContent() {
-  const { items, updateQuantity, removeItem, subtotal, shipping, total, itemCount } = useCart();
+  const { items, updateQuantity, removeItem, subtotal, itemCount } = useCart();
 
   if (items.length === 0) {
     return (
@@ -26,8 +25,6 @@ export function CartPageContent() {
       </div>
     );
   }
-
-  const remaining = Math.max(0, SITE.freeShippingFrom - subtotal);
 
   return (
     <div className="container-site pb-24 pt-8 md:pt-12">
@@ -51,23 +48,12 @@ export function CartPageContent() {
 
       <div className="grid gap-10 lg:grid-cols-[1.4fr_0.8fr]">
         <div>
-          <div className="mb-6 flex items-center gap-3 rounded-2xl bg-surface-muted p-4">
-            <Truck size={18} className="shrink-0 text-olive-700 dark:text-olive-300" />
-            <p className="text-sm text-ink-700 dark:text-ink-100">
-              {remaining > 0 ? (
-                <>
-                  Te faltan <strong className="text-olive-700 dark:text-olive-300">{formatPrice(remaining)}</strong> para el envío gratuito
-                </>
-              ) : (
-                <strong className="text-olive-700 dark:text-olive-300">¡Enhorabuena, tienes envío gratuito!</strong>
-              )}
-            </p>
-          </div>
-
           <ul className="divide-y divide-line">
-            {items.map(({ product, quantity }) => (
+            {items.map((item) => {
+                const { product, quantity } = item;
+                return (
               <motion.li
-                key={product.id}
+                key={item.key}
                 layout
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -96,11 +82,11 @@ export function CartPageContent() {
                         {product.name}
                       </Link>
                       <p className="mt-0.5 text-xs text-ink-400">
-                        {product.aroma} · {product.subtitle}
+                        {item.aroma ? `Aroma: ${item.aroma}` : `${product.aroma} · ${product.subtitle}`}
                       </p>
                     </div>
                     <button
-                      onClick={() => removeItem(product.id)}
+                      onClick={() => removeItem(item.key)}
                       aria-label={`Eliminar ${product.name}`}
                       className="grid size-8 shrink-0 place-items-center rounded-full text-ink-400 transition-colors hover:bg-embers-600/10 hover:text-embers-600"
                     >
@@ -108,14 +94,15 @@ export function CartPageContent() {
                     </button>
                   </div>
                   <div className="mt-auto flex items-center justify-between pt-4">
-                    <QuantitySelector value={quantity} onChange={(q) => updateQuantity(product.id, q)} />
+                    <QuantitySelector value={quantity} onChange={(q) => updateQuantity(item.key, q)} />
                     <span className="font-display text-lg font-semibold text-ink-950 dark:text-foreground">
                       {formatPrice(product.price * quantity)}
                     </span>
                   </div>
                 </div>
               </motion.li>
-            ))}
+                );
+              })}
           </ul>
         </div>
 
@@ -131,14 +118,13 @@ export function CartPageContent() {
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-ink-500 dark:text-ink-400">Envío</span>
-                <span className="font-medium text-ink-950 dark:text-foreground">
-                  {shipping === 0 ? "Gratis" : formatPrice(shipping)}
-                </span>
+                <span className="font-medium text-ink-700 dark:text-ink-100">Por calcular</span>
               </div>
-              <div className="flex items-center justify-between border-t border-line pt-3 text-base">
+              <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 border-t border-line pt-3 text-base">
                 <span className="font-medium text-ink-950 dark:text-foreground">Total</span>
-                <span className="font-display text-2xl font-semibold text-ink-950 dark:text-foreground">
-                  {formatPrice(total)}
+                <span className="font-display text-xl font-semibold text-ink-950 dark:text-foreground">
+                  {formatPrice(subtotal)}{" "}
+                  <span className="text-sm font-medium text-ink-400">+ valor del envío</span>
                 </span>
               </div>
             </div>

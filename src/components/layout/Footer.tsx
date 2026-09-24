@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Leaf, Mail, MapPin, Phone, ShieldCheck, Truck } from "lucide-react";
+import { Leaf, MapPin, Phone, ShieldCheck, Truck } from "lucide-react";
 import { FOOTER_LINKS, SITE } from "@/lib/constants";
 import { Logo } from "@/components/layout/Logo";
 import {
@@ -80,8 +80,8 @@ export function Footer() {
           <div className="flex items-start gap-3">
             <Truck size={18} className="mt-0.5 shrink-0 text-olive-300" />
             <div>
-              <p className="text-sm font-medium">Envío gratuito desde 250.000 COP</p>
-              <p className="text-xs text-cream-100/60">Entrega en 2–4 días laborables</p>
+              <p className="text-sm font-medium">Envío por calcular</p>
+              <p className="text-xs text-cream-100/60">Confirmado por WhatsApp según tu destino</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
@@ -109,10 +109,6 @@ export function Footer() {
             <p className="flex items-center gap-2">
               <Phone size={14} className="text-olive-300" />
               {SITE.phone}
-            </p>
-            <p className="flex items-center gap-2">
-              <Mail size={14} className="text-olive-300" />
-              {SITE.email}
             </p>
           </div>
           <p className="text-xs leading-relaxed text-cream-100/50 md:text-center">

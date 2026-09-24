@@ -2,17 +2,30 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Heart, ShoppingBag, Trash2 } from "lucide-react";
 import { useWishlist } from "@/context/WishlistContext";
 import { useCart } from "@/context/CartContext";
+import { requiresAromaSelection } from "@/lib/cart";
 import { formatPrice } from "@/lib/utils";
+import type { Product } from "@/types";
 import { Button } from "@/components/ui/Button";
 import { EmptyState } from "@/components/ui/EmptyState";
 
 export function WishlistPageContent() {
   const { items, toggle } = useWishlist();
   const { addItem, openCart } = useCart();
+  const router = useRouter();
+
+  const addToCart = (product: Product) => {
+    if (requiresAromaSelection(product)) {
+      router.push(`/producto/${product.slug}`);
+      return;
+    }
+    addItem(product);
+    openCart();
+  };
 
   if (items.length === 0) {
     return (
@@ -76,10 +89,7 @@ export function WishlistPageContent() {
               </p>
               <div className="mt-4 flex gap-2">
                 <button
-                  onClick={() => {
-                    addItem(product);
-                    openCart();
-                  }}
+                  onClick={() => addToCart(product)}
                   className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-full bg-olive-600 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-olive-700"
                 >
                   <ShoppingBag size={14} />

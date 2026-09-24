@@ -2,10 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { ArrowRight, ShoppingBag } from "lucide-react";
 import { useState } from "react";
 import { useUI } from "@/context/UIContext";
 import { useCart } from "@/context/CartContext";
+import { requiresAromaSelection } from "@/lib/cart";
 import { Modal } from "@/components/ui/Modal";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
@@ -16,9 +18,22 @@ import { QuantitySelector } from "@/components/ui/QuantitySelector";
 export function ProductQuickView() {
   const { quickViewProduct, closeQuickView } = useUI();
   const { addItem, openCart } = useCart();
+  const router = useRouter();
   const [quantity, setQuantity] = useState(1);
 
   const product = quickViewProduct;
+
+  const addToCart = () => {
+    if (!product) return;
+    if (requiresAromaSelection(product)) {
+      closeQuickView();
+      router.push(`/producto/${product.slug}`);
+      return;
+    }
+    addItem(product, quantity);
+    closeQuickView();
+    openCart();
+  };
 
   return (
     <Modal open={!!product} onClose={closeQuickView} label="Vista rápida del producto">
@@ -70,11 +85,7 @@ export function ProductQuickView() {
                 <Button
                   className="flex-1"
                   disabled={!product.inStock}
-                  onClick={() => {
-                    addItem(product, quantity);
-                    closeQuickView();
-                    openCart();
-                  }}
+                  onClick={addToCart}
                 >
                   <ShoppingBag size={16} />
                   Añadir al carrito

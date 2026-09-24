@@ -16,7 +16,7 @@ const sections = [
     paragraphs: [
       `En ${SITE.legalName} nos tomamos muy en serio la protección de tus datos. Esta política explica qué información recopilamos, cómo la usamos y qué derechos tienes.`,
       "Recopilamos únicamente los datos necesarios para gestionar tu pedido: nombre, email, dirección de envío y datos de pago. Estos se procesan de forma segura y cifrada.",
-      "Nunca vendemos ni cedemos tus datos a terceros con fines comerciales. Puedes solicitar el acceso, rectificación o eliminación de tus datos escribiéndonos a " + SITE.email,
+      "Nunca vendemos ni cedemos tus datos a terceros con fines comerciales. Puedes solicitar el acceso, rectificación o eliminación de tus datos escribiéndonos a través del formulario de contacto de la página.",
     ],
   },
   {
@@ -39,7 +39,7 @@ const sections = [
     id: "envios",
     title: "Envíos",
     paragraphs: [
-      "Preparamos tu pedido en 24–48 horas laborables. El envío estándar tarda 2–4 días y es gratuito a partir de 250.000 COP.",
+      "Preparamos tu pedido en 24–48 horas laborables y lo entregamos en 2–4 días. El valor del envío se calcula según la ciudad o municipio de entrega y se confirma por WhatsApp antes de finalizar el pedido.",
       "En caso de daños durante el transporte, contáctanos en un plazo de 48 horas con fotos del paquete y te lo solucionamos de inmediato.",
     ],
   },

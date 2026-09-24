@@ -2,16 +2,15 @@ import { InstagramIcon } from "@/components/ui/SocialIcons";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { ImageWithFallback } from "@/components/ui/ImageWithFallback";
-import { u } from "@/lib/images";
 import { SITE } from "@/lib/constants";
 
 const photos = [
-  { image: u("instaLiving"), alt: "Salón de inspiración JULEHOME" },
-  { image: u("candleAmber"), alt: "Vela Ambra Cálida" },
-  { image: u("lavender"), alt: "Rama de lavanda junto a una vela" },
-  { image: u("diffuserGold"), alt: "Difusor de la colección Luxury" },
-  { image: "/images/navidad/velas-blanco-dorado.jpeg", alt: "Vela blanca y dorada de la colección Navidad" },
-  { image: u("bedroomWarm"), alt: "Dormitorio acogedor con luz cálida" },
+  { image: "/images/set-velas-decorativo/set-alma.jpeg", alt: "Set Alma de velas decorativas JULEHOME" },
+  { image: "/images/set-velas-decorativo/set-aura.jpeg", alt: "Set Aura de velas JULEHOME" },
+  { image: "/images/set-velas-decorativo/set-luna.jpeg", alt: "Set Luna de velas decorativas JULEHOME" },
+  { image: "/images/set-velas-decorativo/set-serena.jpeg", alt: "Set Serena de velas JULEHOME" },
+  { image: "/images/set-velas-decorativo/set-primavera.jpeg", alt: "Set Primavera de velas decorativas JULEHOME" },
+  { image: "/images/set-velas-decorativo/set-siena.jpeg", alt: "Set Siena de velas JULEHOME" },
 ];
 
 export function InstagramMosaic() {

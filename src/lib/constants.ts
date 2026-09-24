@@ -12,10 +12,10 @@ export const SITE = {
   pinterest: "https://pinterest.com/julehome",
   tiktok: "https://tiktok.com/@julehome",
   facebook: "https://facebook.com/julehome",
-  shippingCost: 25000,
-  freeShippingFrom: 250000,
+  shippingCost: null,
+  freeShippingFrom: null,
   currency: "COP",
-  address: "Calle 45 # 26-24, Cabecera del Llano, Bucaramanga, Santander, Colombia",
+  address: "Bucaramanga, Santander, Colombia",
   hours: "Lun – Vie · 7:00 – 18:00",
 } as const;
 

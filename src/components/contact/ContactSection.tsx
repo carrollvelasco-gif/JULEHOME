@@ -2,7 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "framer-motion";
-import { Check, Clock, Mail, MapPin, MessageCircle, Phone, Send } from "lucide-react";
+import { Check, Clock, MapPin, MessageCircle, Phone, Send } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -23,7 +23,6 @@ type ContactValues = z.infer<typeof contactSchema>;
 const infoItems = [
   { Icon: MapPin, label: "Dirección", value: SITE.address },
   { Icon: Phone, label: "Teléfono", value: SITE.phone },
-  { Icon: Mail, label: "Email", value: SITE.email },
   { Icon: Clock, label: "Horario", value: SITE.hours },
 ];
 
@@ -162,7 +161,7 @@ export function ContactSection() {
         <div className="mt-16 overflow-hidden rounded-3xl border border-line">
           <iframe
             title="Ubicación de JULEHOME"
-            src="https://maps.google.com/maps?q=Calle%2045%20%23%2026-24%20Cabecera%20del%20Llano%20Bucaramanga%20Santander%20Colombia&t=&z=14&ie=UTF8&iwloc=&output=embed"
+            src="https://maps.google.com/maps?q=Bucaramanga%2C%20Santander%2C%20Colombia&t=&z=12&ie=UTF8&iwloc=&output=embed"
             className="h-96 w-full"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"

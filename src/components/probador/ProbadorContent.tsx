@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowLeft,
@@ -15,6 +16,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { useCart } from "@/context/CartContext";
+import { requiresAromaSelection } from "@/lib/cart";
 import { products } from "@/lib/data/products";
 import { categories } from "@/lib/data/categories";
 import { cn } from "@/lib/utils";
@@ -33,6 +35,7 @@ type ProbadorContentProps = {
 
 export function ProbadorContent({ initialProduct }: ProbadorContentProps) {
   const { addItem, openCart } = useCart();
+  const router = useRouter();
   const [product, setProduct] = useState(initialProduct);
   const [active, setActive] = useState(0);
   const [spacePhoto, setSpacePhoto] = useState<string | null>(null);
@@ -192,6 +195,10 @@ export function ProbadorContent({ initialProduct }: ProbadorContentProps) {
                 size="lg"
                 className="mt-8 w-full"
                 onClick={() => {
+                  if (requiresAromaSelection(product)) {
+                    router.push(`/producto/${product.slug}`);
+                    return;
+                  }
                   addItem(product);
                   openCart();
                 }}
@@ -331,9 +338,6 @@ export function ProbadorContent({ initialProduct }: ProbadorContentProps) {
                     : "border-line bg-surface text-ink-700 hover:border-olive-600/40 hover:text-olive-700 dark:text-ink-200 dark:hover:text-olive-300",
                 )}
               >
-                <span className="relative block size-6 overflow-hidden rounded-full">
-                  <ImageWithFallback src={p.images[0]} alt="" fill sizes="24px" />
-                </span>
                 {p.name}
                 {selected && (
                   <motion.span

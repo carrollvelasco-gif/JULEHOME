@@ -98,10 +98,9 @@ const organizationJsonLd = {
   telephone: SITE.phone,
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Calle 45 # 26-24, Cabecera del Llano",
+    streetAddress: "Bucaramanga, Santander, Colombia",
     addressLocality: "Bucaramanga",
     addressRegion: "Santander",
-    postalCode: "680001",
     addressCountry: "CO",
   },
   sameAs: [SITE.instagram, SITE.pinterest, SITE.facebook, SITE.tiktok],

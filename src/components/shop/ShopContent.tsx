@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
 import { Filter, Search, SlidersHorizontal, X } from "lucide-react";
 import { products } from "@/lib/data/products";
@@ -198,6 +199,35 @@ export function ShopContent({ initial }: { initial: ShopQuery }) {
                   </button>
                 }
               />
+            ) : filters.aromas.length > 0 ? (
+              <div className="rounded-3xl border border-line bg-surface shadow-soft">
+                <div className="border-b border-line px-6 py-5">
+                  <h2 className="font-display text-xl font-medium text-ink-950 dark:text-foreground">
+                    Aromas disponibles
+                  </h2>
+                  <p className="mt-1 text-sm text-ink-500 dark:text-ink-400">
+                    Estas son las fragancias que tenemos en la colección. Toca un
+                    nombre para ver el producto.
+                  </p>
+                </div>
+                <ul className="divide-y divide-line">
+                  {results.map((p) => (
+                    <li key={p.id}>
+                      <Link
+                        href={`/producto/${p.slug}`}
+                        className="flex items-center justify-between gap-4 px-6 py-4 transition-colors hover:bg-olive-600/5"
+                      >
+                        <span className="font-display text-base font-medium text-ink-950 hover:text-olive-700 dark:text-foreground dark:hover:text-olive-300">
+                          {p.name}
+                        </span>
+                        <span className="shrink-0 text-sm text-ink-500 dark:text-ink-400">
+                          {p.aroma}
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ) : (
               <ProductGrid products={results} skeletonCount={8} />
             )}

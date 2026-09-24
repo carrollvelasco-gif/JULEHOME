@@ -97,7 +97,7 @@ export function Hero() {
             <span className="hidden h-4 w-px bg-white/20 sm:block" />
             <span>Cera 100 % natural</span>
             <span className="hidden h-4 w-px bg-white/20 sm:block" />
-            <span>Envío gratis desde 250.000 COP</span>
+            <span>Envío calculado según tu destino</span>
           </motion.div>
         </div>
 

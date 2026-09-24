@@ -43,7 +43,7 @@ const checkoutSchema = z.object({
 type CheckoutValues = z.infer<typeof checkoutSchema>;
 
 export function CheckoutPageContent() {
-  const { items, subtotal, shipping, total, itemCount, clearCart } = useCart();
+  const { items, subtotal, itemCount, clearCart } = useCart();
   const [orderNumber, setOrderNumber] = useState<string | null>(null);
   const {
     register,
@@ -105,8 +105,6 @@ export function CheckoutPageContent() {
       items,
       customer,
       subtotal,
-      shipping,
-      total,
     });
     const url = buildWhatsAppOrderUrl(message);
     const win = window.open(url, "_blank", "noopener,noreferrer");
@@ -172,7 +170,7 @@ export function CheckoutPageContent() {
                 <Field label="Dirección" htmlFor="direccion" error={errors.direccion?.message} className="sm:col-span-2">
                   <Input
                     id="direccion"
-                    placeholder="Calle 45 # 26-24, Cabecera del Llano"
+                    placeholder="Bucaramanga, Santander, Colombia"
                     {...register("direccion")}
                   />
                 </Field>
@@ -221,8 +219,10 @@ export function CheckoutPageContent() {
               </p>
 
               <ul className="mt-5 flex max-h-72 flex-col gap-4 overflow-y-auto pr-1">
-                {items.map(({ product, quantity }) => (
-                  <li key={product.id} className="flex items-start gap-3">
+                {items.map((item) => {
+                  const { product, quantity } = item;
+                  return (
+                  <li key={item.key} className="flex items-start gap-3">
                     <div className="grid size-9 shrink-0 place-items-center rounded-xl bg-olive-600/10 text-xs font-bold text-olive-700 dark:bg-olive-400/15 dark:text-olive-300">
                       ×{quantity}
                     </div>
@@ -230,13 +230,16 @@ export function CheckoutPageContent() {
                       <p className="truncate text-sm font-medium text-ink-950 dark:text-foreground">
                         {product.name}
                       </p>
-                      <p className="truncate text-xs text-ink-400">{product.aroma}</p>
+                      <p className="truncate text-xs text-ink-400">
+                        {item.aroma ? `Aroma: ${item.aroma}` : product.aroma}
+                      </p>
                       <p className="mt-0.5 text-xs font-semibold text-olive-700 dark:text-olive-300">
                         {formatPrice(product.price * quantity)}
                       </p>
                     </div>
                   </li>
-                ))}
+                  );
+                })}
               </ul>
 
               <div className="mt-6 space-y-3 border-t border-line pt-5 text-sm">
@@ -249,14 +252,13 @@ export function CheckoutPageContent() {
                     <Truck size={14} />
                     Envío
                   </span>
-                  <span className="font-medium text-ink-950 dark:text-foreground">
-                    {shipping === 0 ? "Gratis" : formatPrice(shipping)}
-                  </span>
+                  <span className="font-medium text-ink-700 dark:text-ink-100">Por calcular</span>
                 </div>
-                <div className="flex items-center justify-between border-t border-line pt-3 text-base">
+                <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 border-t border-line pt-3 text-base">
                   <span className="font-medium text-ink-950 dark:text-foreground">Total</span>
-                  <span className="font-display text-2xl font-semibold text-ink-950 dark:text-foreground">
-                    {formatPrice(total)}
+                  <span className="font-display text-xl font-semibold text-ink-950 dark:text-foreground">
+                    {formatPrice(subtotal)}{" "}
+                    <span className="text-sm font-medium text-ink-400">+ valor del envío</span>
                   </span>
                 </div>
               </div>
@@ -264,6 +266,10 @@ export function CheckoutPageContent() {
               <div className="mt-6 flex items-start gap-2 rounded-2xl bg-surface-muted p-4 text-xs leading-relaxed text-ink-500 dark:text-ink-400">
                 <Check size={14} className="mt-0.5 shrink-0 text-olive-600 dark:text-olive-300" />
                 Tramitaremos tu pedido en cuanto confirmes por WhatsApp. Te contactaremos para coordinar el pago y la entrega.
+              </div>
+              <div className="mt-4 flex items-start gap-2 rounded-2xl bg-surface-muted p-4 text-xs leading-relaxed text-ink-500 dark:text-ink-400">
+                <Truck size={14} className="mt-0.5 shrink-0 text-olive-600 dark:text-olive-300" />
+                El valor del envío se calcula según la ciudad o municipio de entrega y será confirmado por WhatsApp antes de finalizar el pedido.
               </div>
             </div>
           </aside>

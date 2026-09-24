@@ -5,7 +5,7 @@ export const faqs: Faq[] = [
     id: "f1",
     question: "¿Cuánto tarda el envío?",
     answer:
-      "Los pedidos se preparan en 24–48 horas laborables y se entregan en 2–4 días. Ofrecemos envío gratuito a partir de 250.000 COP y envío express disponible en el checkout.",
+      "Los pedidos se preparan en 24–48 horas laborables y se entregan en 2–4 días. El valor del envío se calcula según la ciudad o municipio de entrega y se confirma por WhatsApp antes de finalizar el pedido.",
     category: "Envíos",
   },
   {

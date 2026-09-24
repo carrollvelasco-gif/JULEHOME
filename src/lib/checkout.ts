@@ -25,33 +25,29 @@ export function buildWhatsAppOrderMessage({
   items,
   customer,
   subtotal,
-  shipping,
-  total,
 }: {
   orderNumber: string;
   items: CartItem[];
   customer: CheckoutCustomer;
   subtotal: number;
-  shipping: number;
-  total: number;
 }): string {
   const lines: string[] = [
-    "¡Hola! Bienvenido(a) a JULEHOME. ✨",
-    "Gracias por escribirnos. Nos encanta ayudarte a encontrar velas aromáticas y detalles de decoración que llenen tu hogar de calidez y armonía.",
-    "Cuéntanos, ¿en qué podemos ayudarte hoy?",
+    "¡Hola! 👋 Bienvenido(a) a JULEHOME.",
+    "",
+    "Gracias por escribirnos. Nos encanta ayudarte a encontrar velas y detalles de decoración que llenen tu hogar de calidez y armonía. ✨",
     "",
     "Acabo de realizar un pedido desde la página web y me gustaría confirmar mi compra.",
     "",
-    `🛍️ Pedido #: ${orderNumber}`,
+    `🧾 Pedido #: ${orderNumber}`,
     "",
-    "Productos:",
+    "🛍️ Productos",
   ];
 
-  items.forEach(({ product, quantity }) => {
+  items.forEach(({ product, quantity, aroma }) => {
     lines.push(
       "",
       `• ${product.name}`,
-      `• Aroma: ${product.aroma}`,
+      `• Aroma: ${aroma ?? product.aroma}`,
       `• Cantidad: ${quantity}`,
       `• Precio unitario: ${formatPrice(product.price)}`,
       `• Subtotal: ${formatPrice(product.price * quantity)}`,
@@ -60,23 +56,25 @@ export function buildWhatsAppOrderMessage({
 
   lines.push(
     "",
-    "👤 Cliente",
+    "👤 Datos del cliente",
     `• Nombre: ${customer.nombre}`,
     `• Teléfono: ${customer.telefono}`,
     `• Correo: ${customer.correo}`,
     "",
     "📍 Dirección de entrega",
     `• Dirección: ${customer.direccion}`,
-    `• Ciudad: ${customer.ciudad}`,
+    `• Ciudad/Municipio: ${customer.ciudad}`,
     "",
-    "💰 Resumen",
+    "💰 Resumen del pedido",
     `• Subtotal: ${formatPrice(subtotal)}`,
-    `• Envío: ${shipping === 0 ? "Gratis" : formatPrice(shipping)}`,
-    `• Total: ${formatPrice(total)}`,
+    "• Envío: Por calcular",
+    `• Total: ${formatPrice(subtotal)} + valor del envío`,
     "",
-    "Quedo atento(a) a la confirmación de mi pedido.",
+    "📦 Importante: El valor del envío se calcula de acuerdo con la ciudad o municipio donde se realizará la entrega y será confirmado por WhatsApp antes de finalizar el pedido.",
     "",
-    "¡Muchas gracias! 🕯️✨",
+    "Quedo atenta a la confirmación de mi pedido y al valor del envío.",
+    "",
+    "¡Muchas gracias! 💚",
   );
 
   return lines.join("\n");

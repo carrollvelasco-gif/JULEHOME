@@ -2,10 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { ArrowRight, Heart, ShoppingBag } from "lucide-react";
 import { useWishlist } from "@/context/WishlistContext";
 import { useCart } from "@/context/CartContext";
+import { requiresAromaSelection } from "@/lib/cart";
 import { formatPrice } from "@/lib/utils";
+import type { Product } from "@/types";
 import { Button } from "@/components/ui/Button";
 import { Drawer } from "@/components/ui/Drawer";
 import { EmptyState } from "@/components/ui/EmptyState";
@@ -13,6 +16,18 @@ import { EmptyState } from "@/components/ui/EmptyState";
 export function WishlistDrawer() {
   const { isOpen, closeWishlist, items, toggle } = useWishlist();
   const { addItem, openCart } = useCart();
+  const router = useRouter();
+
+  const addToCart = (product: Product) => {
+    if (requiresAromaSelection(product)) {
+      closeWishlist();
+      router.push(`/producto/${product.slug}`);
+      return;
+    }
+    addItem(product);
+    closeWishlist();
+    openCart();
+  };
 
   return (
     <Drawer
@@ -74,11 +89,7 @@ export function WishlistDrawer() {
                 </div>
                 <div className="mt-auto pt-2">
                   <button
-                    onClick={() => {
-                      addItem(product);
-                      closeWishlist();
-                      openCart();
-                    }}
+                    onClick={() => addToCart(product)}
                     className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-olive-700 transition-colors hover:text-olive-600 dark:text-olive-300"
                   >
                     <ShoppingBag size={13} />

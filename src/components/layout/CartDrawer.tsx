@@ -5,7 +5,6 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { ShoppingBag, Trash2 } from "lucide-react";
 import { useCart } from "@/context/CartContext";
-import { SITE } from "@/lib/constants";
 import { formatPrice } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
 import { Drawer } from "@/components/ui/Drawer";
@@ -20,12 +19,7 @@ export function CartDrawer() {
     updateQuantity,
     removeItem,
     subtotal,
-    shipping,
-    total,
   } = useCart();
-
-  const progress = Math.min(100, (subtotal / SITE.freeShippingFrom) * 100);
-  const remaining = Math.max(0, SITE.freeShippingFrom - subtotal);
 
   return (
     <Drawer
@@ -45,14 +39,13 @@ export function CartDrawer() {
               </div>
               <div className="flex items-center justify-between text-sm">
                 <span className="text-ink-500 dark:text-ink-400">Envío</span>
-                <span className="font-medium text-ink-950 dark:text-foreground">
-                  {shipping === 0 ? "Gratis" : formatPrice(shipping)}
-                </span>
+                <span className="font-medium text-ink-700 dark:text-ink-100">Por calcular</span>
               </div>
-              <div className="flex items-center justify-between border-t border-line pt-3 text-base">
+              <div className="flex items-baseline justify-between gap-x-3 gap-y-1 border-t border-line pt-3 text-base">
                 <span className="font-medium text-ink-950 dark:text-foreground">Total</span>
-                <span className="font-display text-xl font-semibold text-ink-950 dark:text-foreground">
-                  {formatPrice(total)}
+                <span className="font-display text-base font-semibold text-ink-950 dark:text-foreground">
+                  {formatPrice(subtotal)}{" "}
+                  <span className="text-xs font-medium text-ink-400">+ valor del envío</span>
                 </span>
               </div>
             </div>
@@ -83,36 +76,13 @@ export function CartDrawer() {
         />
       ) : (
         <div className="flex flex-col gap-6 p-5">
-          <div className="rounded-2xl bg-surface-muted p-4">
-            <div className="mb-2 flex items-center justify-between text-xs">
-              <span className="text-ink-500 dark:text-ink-400">
-                {remaining > 0 ? (
-                  <>
-                    Te faltan <strong className="text-olive-700 dark:text-olive-300">{formatPrice(remaining)}</strong> para el envío gratuito
-                  </>
-                ) : (
-                  <span className="font-medium text-olive-700 dark:text-olive-300">
-                    ¡Tienes envío gratuito!
-                  </span>
-                )}
-              </span>
-              <span className="text-ink-400">{Math.round(progress)}%</span>
-            </div>
-            <div className="h-1.5 overflow-hidden rounded-full bg-ink-950/10 dark:bg-foreground/10">
-              <motion.div
-                className="h-full rounded-full bg-olive-600 dark:bg-olive-300"
-                initial={{ width: 0 }}
-                animate={{ width: `${progress}%` }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-              />
-            </div>
-          </div>
-
           <ul className="flex flex-col gap-5">
             <AnimatePresence initial={false}>
-              {items.map(({ product, quantity }) => (
+              {items.map((item) => {
+                const { product, quantity } = item;
+                return (
                 <motion.li
-                  key={product.id}
+                  key={item.key}
                   layout
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -143,10 +113,12 @@ export function CartDrawer() {
                         >
                           {product.name}
                         </Link>
-                        <p className="mt-0.5 text-xs text-ink-400">{product.aroma}</p>
+                        <p className="mt-0.5 text-xs text-ink-400">
+                          {item.aroma ? `Aroma: ${item.aroma}` : product.aroma}
+                        </p>
                       </div>
                       <button
-                        onClick={() => removeItem(product.id)}
+                        onClick={() => removeItem(item.key)}
                         aria-label={`Eliminar ${product.name}`}
                         className="grid size-7 shrink-0 place-items-center rounded-full text-ink-400 transition-colors hover:bg-embers-600/10 hover:text-embers-600"
                       >
@@ -157,7 +129,7 @@ export function CartDrawer() {
                       <QuantitySelector
                         size="sm"
                         value={quantity}
-                        onChange={(q) => updateQuantity(product.id, q)}
+                        onChange={(q) => updateQuantity(item.key, q)}
                       />
                       <span className="text-sm font-medium text-ink-950 dark:text-foreground">
                         {formatPrice(product.price * quantity)}
@@ -165,7 +137,8 @@ export function CartDrawer() {
                     </div>
                   </div>
                 </motion.li>
-              ))}
+                );
+              })}
             </AnimatePresence>
           </ul>
         </div>

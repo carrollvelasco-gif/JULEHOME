@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import {
+  AlertCircle,
   Check,
   Heart,
   Minus,
@@ -21,22 +22,41 @@ import { Accordion } from "@/components/ui/Accordion";
 import { cn } from "@/lib/utils";
 import type { Product } from "@/types";
 
-const perks = [{ Icon: Truck, text: "Envío gratis desde 250.000 COP" }];
+const perks = [{ Icon: Truck, text: "Envío a calcular según destino" }];
 
 export function ProductInfo({ product }: { product: Product }) {
   const { addItem, openCart } = useCart();
   const { has, toggle } = useWishlist();
   const [quantity, setQuantity] = useState(1);
+  const [aroma, setAroma] = useState<string | null>(null);
+  const [aromaError, setAromaError] = useState(false);
   const [added, setAdded] = useState(false);
   const wished = has(product.id);
 
+  const hasAromas = product.aromas && product.aromas.length > 0;
+
   const addToCart = () => {
-    addItem(product, quantity);
+    if (hasAromas && !aroma) {
+      setAromaError(true);
+      return;
+    }
+    setAromaError(false);
+    addItem(product, quantity, aroma ?? undefined);
     setAdded(true);
     setTimeout(() => {
       setAdded(false);
       openCart();
     }, 650);
+  };
+
+  const buyNow = () => {
+    if (hasAromas && !aroma) {
+      setAromaError(true);
+      return;
+    }
+    setAromaError(false);
+    addItem(product, quantity, aroma ?? undefined);
+    openCart();
   };
 
   const accordionItems = useMemo(
@@ -107,13 +127,65 @@ export function ProductInfo({ product }: { product: Product }) {
       <div className="border-y border-line py-5">
         <Price price={product.price} compareAtPrice={product.compareAtPrice} size="lg" />
         <p className="mt-1 text-xs text-ink-400">
-          IVA incluido · Envío calculado en el carrito
+          IVA incluido · Envío por calcular según destino
         </p>
       </div>
 
       <p className="text-sm leading-relaxed text-ink-500 dark:text-ink-400">
         {product.description}
       </p>
+
+      {hasAromas && (
+        <div className="rounded-2xl border border-line bg-surface p-5">
+          <div className="flex items-center gap-2">
+            <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-ink-500 dark:text-ink-400">
+              Aroma
+            </h2>
+            {aroma && (
+              <span className="rounded-full bg-olive-600/10 px-2.5 py-0.5 text-xs font-semibold text-olive-700 dark:bg-olive-400/15 dark:text-olive-300">
+                {aroma}
+              </span>
+            )}
+          </div>
+          <p className="mt-1 text-sm text-ink-500 dark:text-ink-400">
+            Selecciona tu aroma:
+          </p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {product.aromas!.map((opt) => {
+              const active = aroma === opt;
+              return (
+                <button
+                  key={opt}
+                  type="button"
+                  aria-pressed={active}
+                  onClick={() => {
+                    setAroma(opt);
+                    setAromaError(false);
+                  }}
+                  className={cn(
+                    "rounded-full border px-3.5 py-2 text-sm font-medium transition-all duration-300",
+                    active
+                      ? "border-olive-600 bg-olive-600/10 text-olive-700 ring-1 ring-olive-600/30 dark:border-olive-300 dark:bg-olive-400/15 dark:text-olive-300"
+                      : "border-line-strong bg-surface text-ink-700 hover:border-olive-600/40 hover:text-olive-700 dark:text-ink-100 dark:hover:text-olive-300",
+                  )}
+                >
+                  {opt}
+                </button>
+              );
+            })}
+          </div>
+          {aromaError && (
+            <motion.p
+              initial={{ opacity: 0, y: -4 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mt-3 flex items-start gap-1.5 text-xs font-medium text-embers-600"
+            >
+              <AlertCircle size={14} className="mt-0.5 shrink-0" />
+              Por favor, selecciona un aroma antes de continuar.
+            </motion.p>
+          )}
+        </div>
+      )}
 
       <div className="flex flex-col gap-3">
         <div className="flex items-center gap-3">
@@ -165,10 +237,7 @@ export function ProductInfo({ product }: { product: Product }) {
           size="md"
           className="h-12 w-full"
           disabled={!product.inStock}
-          onClick={() => {
-            addItem(product, quantity);
-            openCart();
-          }}
+          onClick={buyNow}
         >
           Comprar ahora
         </Button>

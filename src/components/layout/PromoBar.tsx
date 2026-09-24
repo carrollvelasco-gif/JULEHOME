@@ -4,7 +4,7 @@ import { Leaf } from "lucide-react";
 import { Marquee } from "@/components/ui/Marquee";
 
 const messages = [
-  "Envío gratuito en pedidos superiores a 250.000 COP",
+  "Envío calculado según la ciudad de entrega",
   "−20 % en la colección Navidad hasta agotar existencias",
   "Velas de cera natural · Elaboradas a mano",
   "Envuelto para regalo en todos nuestros sets",
