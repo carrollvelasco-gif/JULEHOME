@@ -5,9 +5,9 @@ import { Marquee } from "@/components/ui/Marquee";
 
 const messages = [
   "Envío calculado según la ciudad de entrega",
-  "−20 % en la colección Navidad hasta agotar existencias",
   "Velas de cera natural · Elaboradas a mano",
   "Envuelto para regalo en todos nuestros sets",
+  "Nuevo: colección Edición Limitada, velas navideñas, solo 500 unidades",
 ];
 
 export function PromoBar() {
