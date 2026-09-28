@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ArrowRight, Flame, Home as HomeIcon, Leaf, Sparkles } from "lucide-react";
+import { ArrowRight, Home as HomeIcon, Leaf } from "lucide-react";
 import { PageHero } from "@/components/shared/PageHero";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
@@ -22,11 +22,6 @@ const pillars = [
     Icon: Leaf,
     title: "El bienestar",
     text: "Los aromas tienen el poder de calmarnos, reconfortarnos y despertar recuerdos. Creamos fragancias que cuidan de ti, sin artificios.",
-  },
-  {
-    Icon: Sparkles,
-    title: "La naturaleza",
-    text: "Cera de soja 100 % natural, vidrio reciclado y materiales respetuosos. La elegancia no debería costarle nada al planeta.",
   },
 ];
 
@@ -51,54 +46,61 @@ export default function AboutPage() {
       <section className="container-site grid items-center gap-12 py-20 md:py-28 lg:grid-cols-2 lg:gap-20">
         <Reveal>
           <span className="eyebrow text-olive-600 dark:text-olive-300">Nuestra historia</span>
-          <h2 className="mt-4 font-display text-balance text-3xl font-medium leading-tight text-ink-950 dark:text-foreground sm:text-4xl">
-            De una mesa de cocina a miles de hogares
+          <h2 className="mt-4 font-display text-balance text-3xl font-medium leading-tight text-ink-950 dark:text-foreground sm:text-4xl lg:text-5xl">
+            Un hogar que se siente,
+            <em className="text-olive-600 dark:text-olive-300"> aroma a aroma</em>
           </h2>
           <div className="mt-6 space-y-4 text-base leading-relaxed text-ink-500 dark:text-ink-400">
             <p>
-              JULEHOME empezó en 2019 con una cacerola, cera de soja y un sueño:
-              crear la vela perfecta. La primera la encendimos en la cocina de
-              casa, y al ver cómo cambiaba la luz, el aire y hasta la conversación,
-              supimos que estábamos haciendo algo importante.
+              JULEHOME nació en 2024 con el deseo de transformar los espacios
+              cotidianos en lugares llenos de calidez, armonía y bienestar.
+              Creemos que los pequeños detalles tienen el poder de crear grandes
+              sensaciones y que cada aroma puede convertirse en parte de un
+              recuerdo especial.
             </p>
             <p>
-              Hoy seguimos elaborando a mano cada pieza en nuestro pequeño taller,
-              con la misma paciencia de aquel primer día. No fabricamos velas en
-              serie: creamos objetos para habitar, aromas para sentir y regalos
-              para recordar.
-            </p>
-            <p>
-              Nuestro nombre lo dice todo: <strong className="text-olive-700 dark:text-olive-300">JULE</strong>, del danés
-              que significa «Navidad» y alegría, y <strong className="text-olive-700 dark:text-olive-300">HOME</strong>, porque
-              para nosotros el hogar lo es todo.
+              Por eso, creamos velas aromáticas y piezas decorativas pensadas
+              para acompañar tus momentos favoritos, darle personalidad a cada
+              rincón y hacer de tu hogar ese lugar al que siempre quieres
+              volver.
             </p>
           </div>
-          <div className="mt-8 flex items-center gap-4">
-            <div className="grid size-12 place-items-center rounded-full bg-olive-600/10 text-olive-700 dark:bg-olive-400/15 dark:text-olive-300">
-              <Flame size={20} className="animate-flicker" strokeWidth={1.6} />
+          <div className="mt-8 grid grid-cols-3 gap-4 border-y border-line py-6">
+            <div>
+              <p className="font-display text-2xl font-semibold text-olive-700 dark:text-olive-300 sm:text-3xl">
+                2024
+              </p>
+              <p className="mt-1 text-xs text-ink-500 dark:text-ink-400">Año de nacimiento</p>
             </div>
-            <p className="font-display text-lg text-ink-950 dark:text-foreground">
-              El equipo JULEHOME
-            </p>
+            <div>
+              <p className="font-display text-2xl font-semibold text-olive-700 dark:text-olive-300 sm:text-3xl">
+                Aromas
+              </p>
+              <p className="mt-1 text-xs text-ink-500 dark:text-ink-400">Que inspiran bienestar</p>
+            </div>
+            <div>
+              <p className="font-display text-2xl font-semibold text-olive-700 dark:text-olive-300 sm:text-3xl">
+                Detalles
+              </p>
+              <p className="mt-1 text-xs text-ink-500 dark:text-ink-400">Que transforman espacios</p>
+            </div>
+          </div>
+          <div className="mt-8">
+            <Button href="/tienda" variant="primary">
+              Ver la tienda
+              <ArrowRight size={16} />
+            </Button>
           </div>
         </Reveal>
 
         <Reveal delay={0.15} className="relative">
           <div className="relative aspect-[4/5] overflow-hidden rounded-3xl">
             <ImageWithFallback
-              src={u("kitchenB")}
-              alt="El taller artesanal de JULEHOME"
+              src="/images/historia/hogar.jpeg"
+              alt="Espacio cálido decorado con velas y piezas JULEHOME"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
-          </div>
-          <div className="absolute -bottom-6 -left-4 hidden max-w-xs rounded-2xl border border-line bg-surface p-5 shadow-lift sm:block">
-            <p className="font-display text-xl font-medium text-olive-700 dark:text-olive-300">
-              «El hogar no se construye solo con muebles, sino con sensaciones.»
-            </p>
-            <p className="mt-2 text-xs text-ink-500 dark:text-ink-400">
-              — Fundadores de JULEHOME
-            </p>
           </div>
         </Reveal>
       </section>
@@ -108,10 +110,10 @@ export default function AboutPage() {
           <Reveal className="mx-auto max-w-2xl text-center">
             <span className="eyebrow text-olive-600 dark:text-olive-300">Qué nos mueve</span>
             <h2 className="mt-4 font-display text-balance text-3xl font-medium text-ink-950 dark:text-foreground sm:text-4xl">
-              Tres pilares, una misma filosofía
+              Dos pilares, una misma filosofía
             </h2>
           </Reveal>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
             {pillars.map((p, i) => (
               <Reveal key={p.title} delay={Math.min(i * 0.08, 0.3)}>
                 <div className="flex h-full flex-col gap-5 rounded-3xl border border-line bg-background p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-soft-lg">

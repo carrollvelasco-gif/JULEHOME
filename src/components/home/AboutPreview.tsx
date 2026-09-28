@@ -3,12 +3,11 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 import { ImageWithFallback } from "@/components/ui/ImageWithFallback";
-import { u } from "@/lib/images";
 
 const values = [
-  { value: "2019", label: "Año de nacimiento" },
-  { value: "+50k", label: "Hogares iluminados" },
-  { value: "100%", label: "Cera natural" },
+  { value: "2024", label: "Año de nacimiento" },
+  { value: "Aromas", label: "Que inspiran bienestar" },
+  { value: "Detalles", label: "Que transforman espacios" },
 ];
 
 export function AboutPreview() {
@@ -18,8 +17,8 @@ export function AboutPreview() {
         <Reveal className="relative">
           <div className="relative aspect-[4/5] overflow-hidden rounded-3xl">
             <ImageWithFallback
-              src={u("aboutCraft")}
-              alt="Artesanía de velas JULEHOME elaboradas a mano"
+              src="/images/historia/hogar.jpeg"
+              alt="Espacio cálido decorado con velas y piezas JULEHOME"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
@@ -46,22 +45,24 @@ export function AboutPreview() {
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="mt-4 font-display text-balance text-3xl font-medium leading-tight text-ink-950 dark:text-foreground sm:text-4xl lg:text-5xl">
-              Crear hogares cálidos,
+              Un hogar que se siente,
               <em className="text-olive-600 dark:text-olive-300"> aroma a aroma</em>
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
             <div className="mt-6 space-y-4 text-base leading-relaxed text-ink-500 dark:text-ink-400">
               <p>
-                JULEHOME nació de una idea sencilla: el hogar no se construye
-                solo con muebles, sino con sensaciones. Con el aroma que te
-                recibe al llegar, la luz que envuelve una tarde de invierno y
-                los detalles que cuentan quién eres.
+                JULEHOME nació en 2024 con el deseo de transformar los espacios
+                cotidianos en lugares llenos de calidez, armonía y bienestar.
+                Creemos que los pequeños detalles tienen el poder de crear
+                grandes sensaciones y que cada aroma puede convertirse en parte
+                de un recuerdo especial.
               </p>
               <p>
-                Elaboramos cada vela a mano con cera 100 % natural y fragancias
-                exclusivas, buscando ese equilibrio entre elegancia, bienestar y
-                calidez que convierte cualquier espacio en un refugio.
+                Por eso, creamos velas aromáticas y piezas decorativas pensadas
+                para acompañar tus momentos favoritos, darle personalidad a cada
+                rincón y hacer de tu hogar ese lugar al que siempre quieres
+                volver.
               </p>
             </div>
           </Reveal>

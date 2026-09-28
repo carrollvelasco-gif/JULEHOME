@@ -108,9 +108,8 @@ export function Hero() {
           className="absolute bottom-24 right-6 hidden flex-col items-end gap-4 lg:flex"
         >
           <div className="animate-float rounded-2xl border border-white/15 bg-white/10 px-5 py-4 backdrop-blur-md">
-            <p className="text-xs uppercase tracking-[0.2em] text-white/70">Vela nº 1</p>
-            <p className="font-display text-lg text-white">Ambra Cálida</p>
-            <p className="text-xs text-olive-200">185.000 COP · Cera natural</p>
+            <p className="text-xs uppercase tracking-[0.2em] text-white/70">Nuevo</p>
+            <p className="font-display text-lg text-white">Set Velas Decorativo</p>
           </div>
           <div
             className="animate-float rounded-2xl border border-white/15 bg-white/10 px-5 py-4 backdrop-blur-md"

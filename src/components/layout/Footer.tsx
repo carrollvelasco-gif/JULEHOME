@@ -31,9 +31,11 @@ export function Footer() {
           <div className="max-w-sm">
             <Logo light />
             <p className="mt-5 text-sm leading-relaxed text-cream-100/70">
-              Velas aromáticas, difusores y decoración elegante. Creamos hogares
-              cálidos mediante aromas que abrazan y detalles que transforman
-              cualquier espacio en un refugio.
+              Velas aromáticas y decoración para el hogar.
+              Creamos espacios cálidos y acogedores a través de aromas que
+              inspiran tranquilidad y detalles que transforman cada rincón en un
+              lugar especial. En JULEHOME, cada pieza está pensada para llenar
+              tu hogar de armonía, belleza y momentos únicos.
             </p>
             <div className="mt-6 flex items-center gap-3">
               {socials.map(({ label, href, Icon }) => (
