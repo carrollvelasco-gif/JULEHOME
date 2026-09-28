@@ -4,6 +4,7 @@ import { ChristmasShowcase } from "@/components/home/ChristmasShowcase";
 import { AboutPreview } from "@/components/home/AboutPreview";
 import { Benefits } from "@/components/home/Benefits";
 import { Testimonials } from "@/components/home/Testimonials";
+import { CustomerReviews } from "@/components/reviews/CustomerReviews";
 import { InstagramMosaic } from "@/components/home/InstagramMosaic";
 import { ProductQuickView } from "@/components/products/ProductQuickView";
 import { SITE } from "@/lib/constants";
@@ -30,6 +31,7 @@ export default function HomePage() {
       <AboutPreview />
       <Benefits />
       <Testimonials />
+      <CustomerReviews />
       <InstagramMosaic />
       <ProductQuickView />
     </>

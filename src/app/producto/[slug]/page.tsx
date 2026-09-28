@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { getProduct, products } from "@/lib/data/products";
 import { ProductGallery } from "@/components/products/ProductGallery";
 import { ProductInfo } from "@/components/products/ProductInfo";
-import { ProductReviews } from "@/components/products/ProductReviews";
+import { ProductReviewSection } from "@/components/reviews/ProductReviewSection";
 import { RelatedProducts } from "@/components/products/RelatedProducts";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ProductQuickView } from "@/components/products/ProductQuickView";
@@ -83,10 +83,10 @@ export default async function ProductPage({ params }: Props) {
         <section className="mt-24">
           <div className="mb-10">
             <h2 className="font-display text-center text-3xl font-medium text-ink-950 dark:text-foreground sm:text-4xl">
-              Opiniones de nuestros clientes
+              Opiniones sobre este producto
             </h2>
           </div>
-          <ProductReviews product={product} />
+          <ProductReviewSection productSlug={product.slug} />
         </section>
 
         <RelatedProducts product={product} />

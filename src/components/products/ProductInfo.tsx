@@ -87,6 +87,7 @@ export function ProductInfo({ product }: { product: Product }) {
           <ul className="space-y-1 text-sm">
             <li>Duración: {product.duration}</li>
             {product.dimensions && <li>Medidas: {product.dimensions}</li>}
+            {product.category === "velas-decorativas" && <li>Incluye: flores</li>}
           </ul>
         ),
       },
