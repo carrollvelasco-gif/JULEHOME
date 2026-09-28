@@ -76,7 +76,7 @@ export function ShopContent({ initial }: { initial: ShopQuery }) {
 
     switch (sort) {
       case "best":
-        return [...list].sort((a, b) => Number(b.bestSeller) - Number(a.bestSeller) || b.rating - a.rating);
+        return [...list].sort((a, b) => Number(b.bestSeller) - Number(a.bestSeller));
       case "newest":
         return [...list].sort((a, b) => Number(b.isNew) - Number(a.isNew));
       case "price-asc":
@@ -86,7 +86,7 @@ export function ShopContent({ initial }: { initial: ShopQuery }) {
       case "name":
         return [...list].sort((a, b) => a.name.localeCompare(b.name, "es"));
       default:
-        return [...list].sort((a, b) => Number(b.featured) - Number(a.featured) || b.rating - a.rating);
+        return [...list].sort((a, b) => Number(b.featured) - Number(a.featured));
     }
   }, [query, sort, filters]);
 

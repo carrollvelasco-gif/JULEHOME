@@ -32,8 +32,6 @@ export type Product = {
   ingredients: string[];
   duration: string;
   usage: string;
-  rating: number;
-  reviews: number;
   images: string[];
   badges: string[];
   inStock: boolean;

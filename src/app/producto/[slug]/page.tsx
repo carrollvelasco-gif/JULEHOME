@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import { getProduct, products } from "@/lib/data/products";
 import { ProductGallery } from "@/components/products/ProductGallery";
 import { ProductInfo } from "@/components/products/ProductInfo";
-import { ProductReviewSection } from "@/components/reviews/ProductReviewSection";
 import { RelatedProducts } from "@/components/products/RelatedProducts";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ProductQuickView } from "@/components/products/ProductQuickView";
@@ -52,11 +51,6 @@ export default async function ProductPage({ params }: Props) {
         : "https://schema.org/OutOfStock",
       url: `${SITE.url}/producto/${product.slug}`,
     },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: product.rating,
-      reviewCount: product.reviews,
-    },
   };
 
   return (
@@ -79,15 +73,6 @@ export default async function ProductPage({ params }: Props) {
           <ProductGallery images={product.images} name={product.name} />
           <ProductInfo product={product} />
         </div>
-
-        <section className="mt-24">
-          <div className="mb-10">
-            <h2 className="font-display text-center text-3xl font-medium text-ink-950 dark:text-foreground sm:text-4xl">
-              Opiniones sobre este producto
-            </h2>
-          </div>
-          <ProductReviewSection productSlug={product.slug} />
-        </section>
 
         <RelatedProducts product={product} />
       </div>

@@ -25,7 +25,6 @@ import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { ImageWithFallback } from "@/components/ui/ImageWithFallback";
 import { Price } from "@/components/ui/Price";
-import { RatingStars } from "@/components/ui/RatingStars";
 import { Reveal } from "@/components/ui/Reveal";
 import { EASE } from "@/lib/motion";
 
@@ -165,11 +164,6 @@ export function ProbadorContent({ initialProduct }: ProbadorContentProps) {
                 {product.name}
               </h2>
               <p className="mt-1 text-sm text-ink-400">{product.aroma}</p>
-
-              <div className="mt-3 flex items-center gap-2">
-                <RatingStars rating={product.rating} size={14} />
-                <span className="text-xs text-ink-400">({product.reviews})</span>
-              </div>
 
               <Price price={product.price} compareAtPrice={product.compareAtPrice} size="lg" className="mt-5" />
 

@@ -12,7 +12,6 @@ import { Modal } from "@/components/ui/Modal";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { Price } from "@/components/ui/Price";
-import { RatingStars } from "@/components/ui/RatingStars";
 import { QuantitySelector } from "@/components/ui/QuantitySelector";
 
 export function ProductQuickView() {
@@ -49,13 +48,7 @@ export function ProductQuickView() {
             />
           </div>
           <div className="flex flex-col p-6 sm:p-8">
-            <div className="flex items-center gap-2">
-              <RatingStars rating={product.rating} size={13} />
-              <span className="text-xs text-ink-400">
-                {product.reviews} opiniones
-              </span>
-            </div>
-            <h2 className="mt-3 font-display text-2xl font-medium text-ink-950 dark:text-foreground">
+            <h2 className="font-display text-2xl font-medium text-ink-950 dark:text-foreground">
               {product.name}
             </h2>
             <p className="mt-1 text-sm text-ink-500 dark:text-ink-400">{product.subtitle}</p>

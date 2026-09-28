@@ -11,7 +11,6 @@ import { requiresAromaSelection } from "@/lib/cart";
 import { ImageWithFallback } from "@/components/ui/ImageWithFallback";
 import { Badge } from "@/components/ui/Badge";
 import { Price } from "@/components/ui/Price";
-import { RatingStars } from "@/components/ui/RatingStars";
 import { discountPercent, cn } from "@/lib/utils";
 import type { Product } from "@/types";
 
@@ -103,10 +102,6 @@ export function ProductCard({ product, className }: ProductCardProps) {
       </div>
 
       <div className="flex flex-col gap-1 px-1 pt-4">
-        <div className="flex items-center gap-2">
-          <RatingStars rating={product.rating} size={12} />
-          <span className="text-[0.68rem] text-ink-400">({product.reviews})</span>
-        </div>
         <Link
           href={`/producto/${product.slug}`}
           className="font-display text-[0.95rem] font-medium text-ink-950 transition-colors hover:text-olive-700 dark:text-foreground dark:hover:text-olive-300"

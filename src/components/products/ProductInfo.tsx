@@ -17,7 +17,6 @@ import { useWishlist } from "@/context/WishlistContext";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Price } from "@/components/ui/Price";
-import { RatingStars } from "@/components/ui/RatingStars";
 import { Accordion } from "@/components/ui/Accordion";
 import { cn } from "@/lib/utils";
 import type { Product } from "@/types";
@@ -117,12 +116,6 @@ export function ProductInfo({ product }: { product: Product }) {
           {product.name}
         </h1>
         <p className="mt-2 text-sm text-ink-500 dark:text-ink-400">{product.subtitle}</p>
-        <div className="mt-3 flex items-center gap-2">
-          <RatingStars rating={product.rating} size={15} />
-          <span className="text-sm text-ink-500 dark:text-ink-400">
-            {product.rating.toFixed(1)} · {product.reviews} opiniones
-          </span>
-        </div>
       </div>
 
       <div className="border-y border-line py-5">
