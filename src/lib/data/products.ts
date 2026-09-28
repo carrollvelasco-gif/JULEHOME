@@ -9,7 +9,7 @@ export const products: Product[] = [
     category: "velas-navidenas",
     collection: "navidad",
     aroma: "Pino",
-    price: 31900,
+    price: 29900,
     description:
       "Rojo y verde, los colores clásicos de la Navidad, en una vela de cera natural. Enciéndela y deja que el hogar se llene de espíritu festivo.",
     benefits: [
@@ -133,7 +133,7 @@ export const products: Product[] = [
     category: "velas-navidenas",
     collection: "navidad",
     aroma: "Frutos Rojos",
-    price: 29900,
+    price: 31900,
     description:
       "Una explosión de color para la mesa navideña: varias velas en tonos arcoíris que aportan alegría y un aroma a frutos rojos.",
     benefits: [
@@ -164,7 +164,7 @@ export const products: Product[] = [
     category: "velas-navidenas",
     collection: "navidad",
     aroma: "Vainilla Francesa",
-    price: 29900,
+    price: 31900,
     description:
       "Amarillo pastel para una Navidad luminosa. Una vela delicada que perfuma el hogar con notas de vainilla francesa.",
     benefits: [
@@ -195,7 +195,7 @@ export const products: Product[] = [
     category: "velas-navidenas",
     collection: "navidad",
     aroma: "Lavanda",
-    price: 31900,
+    price: 29900,
     description:
       "El contraste dulce del morado y el amarillo pastel en una vela de cera natural. Una pieza distinta para una Navidad con carácter.",
     benefits: [
