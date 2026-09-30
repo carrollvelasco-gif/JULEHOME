@@ -83,7 +83,9 @@ export function Footer() {
             <Truck size={18} className="mt-0.5 shrink-0 text-olive-300" />
             <div>
               <p className="text-sm font-medium">Envío por calcular</p>
-              <p className="text-xs text-cream-100/60">Confirmado por WhatsApp según tu destino</p>
+              <p className="text-xs text-cream-100/60">
+                Confirmado por WhatsApp · Entrega en {SITE.deliveryTime}
+              </p>
             </div>
           </div>
           <div className="flex items-start gap-3">

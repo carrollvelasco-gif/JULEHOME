@@ -1,11 +1,11 @@
 import type { Faq } from "@/types";
+import { SITE } from "@/lib/constants";
 
 export const faqs: Faq[] = [
   {
     id: "f1",
     question: "¿Cuánto tarda el envío?",
-    answer:
-      "Los pedidos se preparan en 24–48 horas laborables y se entregan en 2–4 días. El valor del envío se calcula según la ciudad o municipio de entrega y se confirma por WhatsApp antes de finalizar el pedido.",
+    answer: `Los pedidos se preparan en 24–48 horas laborables y se entregan en ${SITE.deliveryTime}. El valor del envío se calcula según la ciudad o municipio de entrega y se confirma por WhatsApp antes de finalizar el pedido.`,
     category: "Envíos",
   },
   {
@@ -19,7 +19,7 @@ export const faqs: Faq[] = [
     id: "f3",
     question: "¿Cuántas horas dura una vela?",
     answer:
-      "Depende del formato, pero la mayoría de nuestras velas ofrecen entre 40 y 60 horas de combustión limpia. Cada ficha de producto indica la duración estimada exacta.",
+      "Depende del formato, pero la mayoría de nuestras velas ofrecen entre 40 y 60 horas de combustión limpia. Si tienes dudas sobre un formato concreto, escríbenos y te orientamos.",
     category: "Producto",
   },
   {

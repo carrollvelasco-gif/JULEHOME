@@ -17,7 +17,7 @@ import {
   User,
 } from "lucide-react";
 import { useCart } from "@/context/CartContext";
-import { CIUDADES_COLOMBIA } from "@/lib/constants";
+import { CIUDADES_COLOMBIA, SITE } from "@/lib/constants";
 import { formatPrice } from "@/lib/utils";
 import {
   buildWhatsAppOrderMessage,
@@ -65,6 +65,13 @@ export function CheckoutPageContent() {
             Te hemos abierto WhatsApp para confirmar tu compra. Menciona tu número
             de pedido <strong className="text-olive-700 dark:text-olive-300">{orderNumber}</strong> y
             responderemos lo antes posible.
+          </p>
+          <p className="mt-4 flex max-w-md items-start justify-center gap-2 text-sm leading-relaxed text-ink-500 dark:text-ink-400">
+            <Truck size={15} className="mt-0.5 shrink-0 text-olive-600 dark:text-olive-300" />
+            <span>
+              Tu pedido se entregará en {SITE.deliveryTime}. Te confirmamos la fecha
+              exacta por WhatsApp.
+            </span>
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <Button href="/" size="lg">
@@ -269,7 +276,7 @@ export function CheckoutPageContent() {
               </div>
               <div className="mt-4 flex items-start gap-2 rounded-2xl bg-surface-muted p-4 text-xs leading-relaxed text-ink-500 dark:text-ink-400">
                 <Truck size={14} className="mt-0.5 shrink-0 text-olive-600 dark:text-olive-300" />
-                El valor del envío se calcula según la ciudad o municipio de entrega y será confirmado por WhatsApp antes de finalizar el pedido.
+                El valor del envío se calcula según la ciudad o municipio de entrega y será confirmado por WhatsApp antes de finalizar el pedido. La entrega se realiza en {SITE.deliveryTime}.
               </div>
             </div>
           </aside>

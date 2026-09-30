@@ -39,7 +39,7 @@ const sections = [
     id: "envios",
     title: "Envíos",
     paragraphs: [
-      "Preparamos tu pedido en 24–48 horas laborables y lo entregamos en 2–4 días. El valor del envío se calcula según la ciudad o municipio de entrega y se confirma por WhatsApp antes de finalizar el pedido.",
+      `Preparamos tu pedido en 24–48 horas laborables y lo entregamos en ${SITE.deliveryTime}. El valor del envío se calcula según la ciudad o municipio de entrega y se confirma por WhatsApp antes de finalizar el pedido.`,
       "En caso de daños durante el transporte, contáctanos en un plazo de 48 horas con fotos del paquete y te lo solucionamos de inmediato.",
     ],
   },

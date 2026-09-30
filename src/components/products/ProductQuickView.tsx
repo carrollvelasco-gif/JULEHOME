@@ -62,7 +62,6 @@ export function ProductQuickView() {
 
             <div className="mt-5 flex flex-wrap gap-2">
               <Badge variant="olive">{product.aroma}</Badge>
-              <Badge variant="neutral">{product.duration}</Badge>
               {product.inStock ? (
                 <Badge variant="neutral">
                   <span className="size-1.5 rounded-full bg-olive-500" /> En stock

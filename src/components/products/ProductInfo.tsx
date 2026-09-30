@@ -84,7 +84,6 @@ export function ProductInfo({ product }: { product: Product }) {
         question: "Detalles",
         answer: (
           <ul className="space-y-1 text-sm">
-            <li>Duración: {product.duration}</li>
             {product.dimensions && <li>Medidas: {product.dimensions}</li>}
             {product.category === "velas-decorativas" && <li>Incluye: flores</li>}
           </ul>
@@ -107,7 +106,6 @@ export function ProductInfo({ product }: { product: Product }) {
     <div className="flex flex-col gap-6">
       <div className="flex flex-wrap items-center gap-2">
         <Badge variant="olive">{product.aroma}</Badge>
-        <Badge variant="neutral">{product.duration}</Badge>
         {!product.inStock && <Badge variant="embers">Agotado</Badge>}
       </div>
 

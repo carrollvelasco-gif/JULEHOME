@@ -71,6 +71,7 @@ export function buildWhatsAppOrderMessage({
     `• Total: ${formatPrice(subtotal)} + valor del envío`,
     "",
     "📦 Importante: El valor del envío se calcula de acuerdo con la ciudad o municipio donde se realizará la entrega y será confirmado por WhatsApp antes de finalizar el pedido.",
+    `🚚 La entrega se realiza en ${SITE.deliveryTime}.`,
     "",
     "Quedo atenta a la confirmación de mi pedido y al valor del envío.",
     "",

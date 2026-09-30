@@ -30,7 +30,6 @@ export type Product = {
   description: string;
   benefits: string[];
   ingredients: string[];
-  duration: string;
   usage: string;
   images: string[];
   badges: string[];

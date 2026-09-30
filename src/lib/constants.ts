@@ -14,6 +14,7 @@ export const SITE = {
   facebook: "https://facebook.com/julehome",
   shippingCost: null,
   freeShippingFrom: null,
+  deliveryTime: "5 a 8 días hábiles después de realizar el pago del pedido",
   currency: "COP",
   address: "Bucaramanga, Santander, Colombia",
   hours: "Lun – Vie · 7:00 – 18:00",
