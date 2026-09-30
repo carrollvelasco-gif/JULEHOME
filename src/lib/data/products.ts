@@ -16,7 +16,6 @@ export const products: Product[] = [
       "Colores navideños",
       "Cera de soja natural",
       "Presentación festiva",
-      "Quema de 45 horas",
     ],
     ingredients: ["Cera de soja", "Pino", "Canela", "Clavo", "Naranja amarga"],
     usage: "Perfecta para la mesa del 24 de diciembre: enciende y deja que la cena huela a Navidad.",
