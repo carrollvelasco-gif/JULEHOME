@@ -89,9 +89,11 @@ export function ProductInfo({ product }: { product: Product }) {
           </ul>
         ),
       },
-    ],
+    ].filter((item) => item.id !== "beneficios" || product.benefits.length > 0),
     [product],
   );
+
+  const defaultAccordionItem = product.benefits.length > 0 ? "beneficios" : "uso";
 
   const share = async () => {
     const url = window.location.href;
@@ -252,7 +254,7 @@ export function ProductInfo({ product }: { product: Product }) {
         Compartir
       </button>
 
-      <Accordion items={accordionItems} defaultOpen="beneficios" />
+      <Accordion items={accordionItems} defaultOpen={defaultAccordionItem} />
     </div>
   );
 }
