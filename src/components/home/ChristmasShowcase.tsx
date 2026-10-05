@@ -36,9 +36,10 @@ export function ChristmasShowcase() {
             Colección <em className="text-gold-300">Navidad</em>
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-balance text-base leading-relaxed text-cream-100/80 sm:text-lg">
-            Llena tu hogar de luz, aroma y magia. Pino, canela, chocolate
-            caliente y galletas de jengibre: las fragancias que convierten
-            diciembre en un recuerdo.
+            Velas navideñas, creadas para la luz y el espíritu festivo. Sus
+            colores y detalles inspirados en la Navidad, sin aroma, las
+            convierten en el complemento perfecto para decorar tu mesa, tu
+            hogar y acompañar esos momentos especiales de diciembre.
           </p>
           <div className="mt-8">
             <Button href="/colecciones/navidad" size="lg" variant="gold">

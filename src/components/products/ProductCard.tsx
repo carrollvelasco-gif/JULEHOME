@@ -108,7 +108,9 @@ export function ProductCard({ product, className }: ProductCardProps) {
         >
           {product.name}
         </Link>
-        <p className="text-xs text-ink-400">{product.aroma}</p>
+        {product.category !== "velas-navidenas" && (
+          <p className="text-xs text-ink-400">{product.aroma}</p>
+        )}
         <Price price={product.price} compareAtPrice={product.compareAtPrice} size="sm" className="pt-1" />
 
         <div className="mt-3 flex flex-col gap-2">

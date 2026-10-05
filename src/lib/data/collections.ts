@@ -4,9 +4,9 @@ export const collections: Collection[] = [
   {
     slug: "navidad",
     name: "Navidad",
-    tagline: "Luz, aroma y magia",
+    tagline: "Luz y espíritu festivo",
     description:
-      "Pino, canela, chocolate caliente y galletas de jengibre. Una colección para llenar las fiestas de nostalgia, calidez y luz.",
+      "Velas navideñas de la temporada, con colores y detalles que evocan la Navidad. Creadas para dar calidez y luz a tu mesa y tu hogar durante diciembre.",
     image: "/images/navidad/velas-rojas-verdes.jpeg",
     imageAlt: "Velas navideñas rojas y verdes de JULEHOME",
     accent: "#8e3a2e",
