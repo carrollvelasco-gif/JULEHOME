@@ -11,6 +11,7 @@ type ProductGridProps = {
   loading?: boolean;
   skeletonCount?: number;
   className?: string;
+  showDescription?: boolean;
 };
 
 export function ProductGrid({
@@ -18,6 +19,7 @@ export function ProductGrid({
   loading = false,
   skeletonCount = 8,
   className,
+  showDescription = false,
 }: ProductGridProps) {
   return (
     <div
@@ -37,7 +39,7 @@ export function ProductGrid({
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: Math.min(i * 0.06, 0.5) }}
             >
-              <ProductCard product={product} />
+              <ProductCard product={product} showDescription={showDescription} />
             </motion.div>
           ))}
     </div>

@@ -30,6 +30,13 @@ export const categories: Category[] = [
     image: "/images/decoracion/bandeja-aura.jpeg",
     imageAlt: "Bandeja Aura de JULEHOME, decoración elegante para el hogar",
   },
+  {
+    slug: "cirios",
+    name: "Cirios",
+    tagline: "Luz para celebraciones",
+    image: "/images/cirios/cirio-marfil.jpeg",
+    imageAlt: "Cirio de Primera Comunión de JULEHOME",
+  },
 ];
 
 export function getCategory(slug: string): Category | undefined {

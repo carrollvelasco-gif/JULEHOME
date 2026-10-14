@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/nosotros",
     "/tienda",
     "/colecciones",
+    "/cirios",
     "/contacto",
     "/preguntas-frecuentes",
     "/politicas",

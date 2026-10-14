@@ -64,7 +64,12 @@ export default async function ProductPage({ params }: Props) {
           className="mb-8"
           items={[
             { label: "Tienda", href: "/tienda" },
-            { label: product.category === "velas-navidenas" ? "Navidad" : "Colecciones", href: "/colecciones" },
+            product.category === "cirios"
+              ? { label: "Cirios", href: "/cirios" }
+              : {
+                  label: product.category === "velas-navidenas" ? "Navidad" : "Colecciones",
+                  href: "/colecciones",
+                },
             { label: product.name },
           ]}
         />

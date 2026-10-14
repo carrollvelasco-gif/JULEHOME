@@ -17,9 +17,10 @@ import type { Product } from "@/types";
 type ProductCardProps = {
   product: Product;
   className?: string;
+  showDescription?: boolean;
 };
 
-export function ProductCard({ product, className }: ProductCardProps) {
+export function ProductCard({ product, className, showDescription = false }: ProductCardProps) {
   const { has, toggle } = useWishlist();
   const { addItem, openCart } = useCart();
   const { openQuickView } = useUI();
@@ -108,10 +109,15 @@ export function ProductCard({ product, className }: ProductCardProps) {
         >
           {product.name}
         </Link>
-        {product.category !== "velas-navidenas" && (
+        {!showDescription && product.category !== "velas-navidenas" && (
           <p className="text-xs text-ink-400">{product.aroma}</p>
         )}
         <Price price={product.price} compareAtPrice={product.compareAtPrice} size="sm" className="pt-1" />
+        {showDescription && (
+          <p className="line-clamp-2 text-xs leading-relaxed text-ink-500 dark:text-ink-400">
+            {product.description}
+          </p>
+        )}
 
         <div className="mt-3 flex flex-col gap-2">
           <motion.button

@@ -14,7 +14,8 @@ const sizes = {
 } as const;
 
 export function Price({ price, compareAtPrice, size = "md", className }: PriceProps) {
-  const hasDiscount = compareAtPrice && compareAtPrice > price;
+  const onRequest = price <= 0;
+  const hasDiscount = !onRequest && !!compareAtPrice && compareAtPrice > price;
   return (
     <div className={cn("flex flex-wrap items-baseline gap-x-2", className)}>
       <span
@@ -23,7 +24,7 @@ export function Price({ price, compareAtPrice, size = "md", className }: PricePr
           sizes[size],
         )}
       >
-        {formatPrice(price)}
+        {onRequest ? "Precio a consultar" : formatPrice(price)}
       </span>
       {hasDiscount && (
         <span
