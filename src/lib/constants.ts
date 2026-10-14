@@ -102,7 +102,7 @@ export const FOOTER_LINKS = {
   tienda: [
     { label: "Todas las velas", href: "/tienda" },
     { label: "Decoración", href: "/tienda?categoria=decoracion" },
-    { label: "Cirios de Primera Comunión", href: "/cirios" },
+    { label: "Cirios", href: "/cirios" },
     { label: "Colección Navidad", href: "/colecciones/navidad" },
   ],
   empresa: [

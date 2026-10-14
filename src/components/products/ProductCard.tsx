@@ -109,7 +109,7 @@ export function ProductCard({ product, className, showDescription = false }: Pro
         >
           {product.name}
         </Link>
-        {!showDescription && product.category !== "velas-navidenas" && (
+        {!showDescription && product.aroma && product.category !== "velas-navidenas" && (
           <p className="text-xs text-ink-400">{product.aroma}</p>
         )}
         <Price price={product.price} compareAtPrice={product.compareAtPrice} size="sm" className="pt-1" />

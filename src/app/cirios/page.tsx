@@ -10,11 +10,11 @@ import { EmptyState } from "@/components/ui/EmptyState";
 const CIRIOS_CATEGORY = "cirios";
 
 export const metadata: Metadata = {
-  title: "Cirios de Primera Comunión",
+  title: "Cirios",
   description:
     "Cirios elaborados para acompañar momentos especiales, con diseños delicados y detalles que hacen de cada celebración un recuerdo inolvidable.",
   openGraph: {
-    title: "Cirios de Primera Comunión · JULEHOME",
+    title: "Cirios · JULEHOME",
     description:
       "Cirios elaborados para acompañar momentos especiales, con diseños delicados y detalles que hacen de cada celebración un recuerdo inolvidable.",
   },
@@ -27,7 +27,7 @@ export default function CiriosPage() {
     <>
       <PageHero
         eyebrow="Cirios"
-        title="Cirios de Primera Comunión"
+        title="Cirios"
         description="Cirios elaborados para acompañar momentos especiales, con diseños delicados y detalles que hacen de cada celebración un recuerdo inolvidable."
         breadcrumbs={[{ label: "Cirios" }]}
       />
@@ -46,7 +46,7 @@ export default function CiriosPage() {
           <EmptyState
             icon={<Flame size={26} />}
             title="Muy pronto, nuestros cirios"
-            description="Estamos preparando las fotografías de los cirios de Primera Comunión. Vuelve pronto para descubrir toda la colección."
+            description="Estamos preparando las fotografías de los cirios. Vuelve pronto para descubrir toda la colección."
             className="rounded-3xl border border-line bg-surface shadow-soft"
           />
         )}

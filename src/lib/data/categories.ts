@@ -35,7 +35,7 @@ export const categories: Category[] = [
     name: "Cirios",
     tagline: "Luz para celebraciones",
     image: "/images/cirios/cirio-marfil.jpeg",
-    imageAlt: "Cirio de Primera Comunión de JULEHOME",
+    imageAlt: "Cirio de JULEHOME",
   },
 ];
 

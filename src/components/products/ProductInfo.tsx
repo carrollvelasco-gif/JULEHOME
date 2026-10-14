@@ -89,11 +89,16 @@ export function ProductInfo({ product }: { product: Product }) {
           </ul>
         ),
       },
-    ].filter((item) => item.id !== "beneficios" || product.benefits.length > 0),
+    ].filter(
+      (item) =>
+        (item.id !== "beneficios" || product.benefits.length > 0) &&
+        (item.id !== "uso" || Boolean(product.usage)),
+    ),
     [product],
   );
 
-  const defaultAccordionItem = product.benefits.length > 0 ? "beneficios" : "uso";
+  const defaultAccordionItem =
+    product.benefits.length > 0 ? "beneficios" : product.usage ? "uso" : "detalles";
 
   const share = async () => {
     const url = window.location.href;
@@ -107,7 +112,7 @@ export function ProductInfo({ product }: { product: Product }) {
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-wrap items-center gap-2">
-        <Badge variant="olive">{product.aroma}</Badge>
+        {product.aroma && <Badge variant="olive">{product.aroma}</Badge>}
         {!product.inStock && <Badge variant="embers">Agotado</Badge>}
       </div>
 
@@ -115,7 +120,9 @@ export function ProductInfo({ product }: { product: Product }) {
         <h1 className="font-display text-balance text-3xl font-medium leading-tight text-ink-950 dark:text-foreground sm:text-4xl">
           {product.name}
         </h1>
-        <p className="mt-2 text-sm text-ink-500 dark:text-ink-400">{product.subtitle}</p>
+        {product.subtitle && (
+          <p className="mt-2 text-sm text-ink-500 dark:text-ink-400">{product.subtitle}</p>
+        )}
       </div>
 
       <div className="border-y border-line py-5">
