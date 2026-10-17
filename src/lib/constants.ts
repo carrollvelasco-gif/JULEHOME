@@ -91,9 +91,6 @@ export const CIUDADES_COLOMBIA = [
 export const NAV_LINKS = [
   { label: "Inicio", href: "/" },
   { label: "Tienda", href: "/tienda" },
-  { label: "Colecciones", href: "/colecciones" },
-  { label: "Navidad", href: "/colecciones/navidad" },
-  { label: "Cirios", href: "/cirios" },
   { label: "Nosotros", href: "/nosotros" },
   { label: "Contacto", href: "/contacto" },
 ] as const;
