@@ -133,9 +133,7 @@ export function Header() {
                 const active =
                   link.href === "/"
                     ? pathname === "/"
-                    : link.href === "/colecciones"
-                      ? pathname === "/colecciones"
-                      : pathname.startsWith(link.href);
+                    : pathname.startsWith(link.href);
                 return (
                   <li key={link.href}>
                     <Link
