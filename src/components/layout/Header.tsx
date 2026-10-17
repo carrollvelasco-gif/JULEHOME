@@ -32,7 +32,7 @@ function IconButton({
       onClick={onClick}
       aria-label={label}
       className={cn(
-        "relative grid size-9 place-items-center rounded-full transition-colors duration-300 sm:size-10",
+        "relative grid size-8 place-items-center rounded-full transition-colors duration-300 sm:size-10",
         overlay
           ? "text-white/90 hover:bg-white/10 hover:text-white"
           : "text-ink-700 hover:bg-surface-muted hover:text-olive-700 dark:text-ink-100 dark:hover:bg-foreground/10 dark:hover:text-olive-300",
@@ -52,14 +52,14 @@ function ThemeToggle({ overlay }: { overlay: boolean }) {
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
-  if (!mounted) return <span className="size-9 sm:size-10" />;
+  if (!mounted) return <span className="size-8 sm:size-10" />;
   const dark = resolvedTheme === "dark";
   return (
     <button
       aria-label={dark ? "Activar modo claro" : "Activar modo oscuro"}
       onClick={() => setTheme(dark ? "light" : "dark")}
       className={cn(
-        "grid size-9 place-items-center rounded-full transition-colors duration-300 sm:size-10",
+        "grid size-8 place-items-center rounded-full transition-colors duration-300 sm:size-10",
         overlay
           ? "text-white/90 hover:bg-white/10 hover:text-white"
           : "text-ink-700 hover:bg-surface-muted hover:text-olive-700 dark:text-ink-100 dark:hover:bg-foreground/10 dark:hover:text-olive-300",
@@ -105,12 +105,12 @@ export function Header() {
         )}
       >
         <div className="container-site relative flex h-16 items-center md:h-20">
-          <div className="flex flex-1 items-center gap-1">
+          <div className="flex items-center gap-1 md:flex-1">
             <button
               onClick={openMobileMenu}
               aria-label="Abrir menú"
               className={cn(
-                "grid size-10 place-items-center rounded-full transition-colors md:hidden",
+                "grid size-9 place-items-center rounded-full transition-colors md:hidden",
                 overlay
                   ? "text-white hover:bg-white/10"
                   : "text-ink-700 hover:bg-surface-muted dark:text-ink-100",
@@ -123,7 +123,7 @@ export function Header() {
             </div>
           </div>
 
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:hidden">
+          <div className="flex min-w-0 flex-1 items-center justify-center px-1 md:hidden">
             <Logo light={overlay} />
           </div>
 
@@ -168,7 +168,7 @@ export function Header() {
             </ul>
           </nav>
 
-          <div className="flex flex-1 items-center justify-end gap-0.5 sm:gap-1">
+          <div className="flex items-center justify-end gap-0 sm:gap-1 md:flex-1">
             <ThemeToggle overlay={overlay} />
             <IconButton label="Buscar" onClick={openSearch} overlay={overlay}>
               <Search size={18} />
@@ -177,7 +177,7 @@ export function Header() {
               href="/favoritos"
               aria-label="Favoritos"
               className={cn(
-                "relative grid size-9 place-items-center rounded-full transition-colors duration-300 sm:size-10",
+                "relative grid size-8 place-items-center rounded-full transition-colors duration-300 sm:size-10",
                 overlay
                   ? "text-white/90 hover:bg-white/10 hover:text-white"
                   : "text-ink-700 hover:bg-surface-muted hover:text-olive-700 dark:text-ink-100 dark:hover:bg-foreground/10 dark:hover:text-olive-300",

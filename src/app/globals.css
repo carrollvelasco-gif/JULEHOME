@@ -275,15 +275,15 @@
   -webkit-mask-image: linear-gradient(
     to right,
     transparent,
-    black 12%,
-    black 88%,
+    black 8%,
+    black 92%,
     transparent
   );
   mask-image: linear-gradient(
     to right,
     transparent,
-    black 12%,
-    black 88%,
+    black 8%,
+    black 92%,
     transparent
   );
 }

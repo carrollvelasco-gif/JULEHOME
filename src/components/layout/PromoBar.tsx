@@ -17,7 +17,7 @@ export function PromoBar() {
         {messages.map((msg, i) => (
           <span
             key={i}
-            className="flex h-10 items-center gap-3 whitespace-nowrap px-6 text-[0.72rem] font-medium uppercase tracking-[0.22em]"
+            className="flex h-10 items-center gap-2 whitespace-nowrap px-4 text-[0.66rem] font-medium uppercase tracking-[0.14em] sm:gap-3 sm:px-6 sm:text-[0.72rem] sm:tracking-[0.22em]"
           >
             <Leaf size={12} className="text-olive-200" />
             {msg}
