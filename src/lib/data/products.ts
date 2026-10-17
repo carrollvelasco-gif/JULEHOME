@@ -1485,6 +1485,89 @@ slug: "set-vela-salvia",
     featured: false,
     dimensions: "26 cm de alto x 3 cm de ancho",
   },
+  {
+    id: "k1",
+    slug: "kit-pinta-tu-figura",
+    name: "Kit Pinta tu Figura",
+    subtitle: "Figura de yeso para pintar",
+    category: "kits-creativos",
+    collection: "kits-creativos",
+    aroma: "",
+    price: 6990,
+    description: "Precio unitario. Pedido mínimo de 12 unidades en adelante.",
+    benefits: ["Figura de yeso", "Pinturas", "Pincel", "Imagen de referencia"],
+    ingredients: [],
+    usage: "",
+    images: [
+      "/images/kits-creativos/kit-pinta-tu-figura.jpeg",
+      "/images/kits-creativos/kit-arcoiris.jpeg",
+      "/images/kits-creativos/kit-estrella.jpeg",
+      "/images/kits-creativos/kit-sirena.jpeg",
+    ],
+    badges: [],
+    inStock: true,
+    bestSeller: false,
+    isNew: true,
+    featured: false,
+    material: "Yeso",
+  },
+  {
+    id: "k2",
+    slug: "kit-nino",
+    name: "Kit Niño",
+    subtitle: "Figura de yeso para pintar",
+    category: "kits-creativos",
+    collection: "kits-creativos",
+    aroma: "",
+    price: 6990,
+    description: "Precio unitario. Pedido mínimo de 12 unidades en adelante.",
+    benefits: ["Figura de yeso", "Pinturas", "Pincel", "Imagen de referencia"],
+    ingredients: [],
+    usage: "",
+    images: ["/images/kits-creativos/kit-niño.jpeg"],
+    badges: [],
+    inStock: true,
+    bestSeller: false,
+    isNew: true,
+    featured: false,
+    material: "Yeso",
+  },
+  // ---------------------------------------------------------------------------
+  // PLANTILLA — KITS CREATIVOS (categoría "kits-creativos", página /kits-creativos)
+  //
+  // Copia este bloque dentro de la lista de productos y completa los datos reales.
+  // Las fotos van en: public/images/kits-creativos/
+  //   images[0] = imagen principal · images[1..] = imágenes adicionales
+  //
+  // {
+  //   id: "k1",                        // único: k1, k2, k3 …
+  //   slug: "",                        // URL: /producto/<slug>
+  //   name: "",                        // nombre del kit
+  //   subtitle: "",                    // diseño o temática (ej. "Cumpleaños dinosaurios")
+  //   category: "kits-creativos",
+  //   collection: "kits-creativos",
+  //   aroma: "",                       // vacío: no es una vela
+  //   price: 0,                        // DEFINIR — aún no definido
+  //   description: "",                 // descripción del kit
+  //   benefits: [                      // se muestra en la ficha como "Este kit incluye"
+  //     "Figura de yeso",
+  //     "Pinturas",
+  //     "Pincel",
+  //     "Imagen de referencia",
+  //   ],
+  //   ingredients: [],
+  //   usage: "",
+  //   images: [""],                    // [0] principal, [1..] adicionales
+  //   badges: [],                      // etiquetas de la tarjeta
+  //   inStock: true,                   // disponibilidad (true / false)
+  //   bestSeller: false,
+  //   isNew: true,
+  //   featured: false,
+  //   material: "Yeso",                // figura de yeso
+  //   dimensions: "",                  // medidas del kit
+  // },
+  // La cantidad la maneja el selector "Añadir al carrito" del propio componente ProductInfo.
+  // ---------------------------------------------------------------------------
 ];
 
 export function getProduct(slug: string): Product | undefined {

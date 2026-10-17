@@ -66,10 +66,12 @@ export default async function ProductPage({ params }: Props) {
             { label: "Tienda", href: "/tienda" },
             product.category === "cirios"
               ? { label: "Cirios", href: "/cirios" }
-              : {
-                  label: product.category === "velas-navidenas" ? "Navidad" : "Colecciones",
-                  href: "/colecciones",
-                },
+              : product.category === "kits-creativos"
+                ? { label: "Kits para Pintar", href: "/kits-creativos" }
+                : {
+                    label: product.category === "velas-navidenas" ? "Navidad" : "Colecciones",
+                    href: "/colecciones",
+                  },
             { label: product.name },
           ]}
         />

@@ -101,6 +101,7 @@ export const FOOTER_LINKS = {
     { label: "Decoración", href: "/tienda?categoria=decoracion" },
     { label: "Cirios", href: "/cirios" },
     { label: "Colección Navidad", href: "/colecciones/navidad" },
+    { label: "Kits para Pintar", href: "/kits-creativos" },
   ],
   empresa: [
     { label: "Nosotros", href: "/nosotros" },

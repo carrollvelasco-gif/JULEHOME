@@ -62,7 +62,8 @@ export function ProductInfo({ product }: { product: Product }) {
     () => [
       {
         id: "beneficios",
-        question: "Beneficios",
+        question:
+          product.category === "kits-creativos" ? "Este kit incluye" : "Beneficios",
         answer: (
           <ul className="space-y-2">
             {product.benefits.map((b) => (
@@ -92,7 +93,10 @@ export function ProductInfo({ product }: { product: Product }) {
     ].filter(
       (item) =>
         (item.id !== "beneficios" || product.benefits.length > 0) &&
-        (item.id !== "uso" || Boolean(product.usage)),
+        (item.id !== "uso" || Boolean(product.usage)) &&
+        (item.id !== "detalles" ||
+          Boolean(product.dimensions) ||
+          product.category === "velas-decorativas"),
     ),
     [product],
   );

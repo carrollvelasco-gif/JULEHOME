@@ -37,6 +37,13 @@ export const categories: Category[] = [
     image: "/images/cirios/cirio-marfil.jpeg",
     imageAlt: "Cirio de JULEHOME",
   },
+  {
+    slug: "kits-creativos",
+    name: "Kits Creativos",
+    tagline: "Crea y diviértete",
+    image: "/images/kits-creativos/banner.jpeg",
+    imageAlt: "Kits de figuras de yeso para pintar de JULEHOME",
+  },
 ];
 
 export function getCategory(slug: string): Category | undefined {
